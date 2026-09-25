@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-school="heritage">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +12,10 @@
     <link rel="preload" href="/fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" as="image" href="/images/school-20.webp" imagesrcset="/images/school-20-mobile.webp 720w, /images/school-20.webp 1280w" imagesizes="(max-width: 767px) 100vw, 50vw" fetchpriority="high" />
     <title>Heritage Academy | Rooted in values. Ready for the world.</title>
-  </head>
+  <link rel="stylesheet" href="/effects/site-effects.css" /><script defer src="/effects/site-effects.js"></script></head>
   <body>
+<div class="fx-intro" aria-hidden="true"><img src="/crest.svg" alt="" width="29" height="29" /><span>Heritage Academy</span></div>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   <script defer src="/discovery.js"></script></body>
