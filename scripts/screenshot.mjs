@@ -1,0 +1,11 @@
+﻿import { chromium } from '@playwright/test';
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});
+page.on('pageerror',e=>console.log('PAGE ERROR',e.message));
+await page.goto('http://127.0.0.1:8080/',{waitUntil:'networkidle'});
+await page.screenshot({path:'qa-home-desktop.png',fullPage:true});
+console.log('Title:',await page.title());
+console.log('Broken images:',await page.locator('img').evaluateAll(imgs=>imgs.filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src)));
+await page.setViewportSize({width:390,height:844});await page.screenshot({path:'qa-home-mobile.png',fullPage:true});
+console.log('Mobile overflow:',await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
+await browser.close();
